@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang='th'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Trainer Access Hub | รายการแดชบอร์ด</title>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"> <style>
+/* --- 1. Base Styles and Typography (Sarabun Font) --- */
+body { 
+    font-family: 'Sarabun', sans-serif; 
+    background-color: #f0f4f8; /* Soft light blue background */
+    color: #333; 
+    text-align: center; 
+    padding: 20px; 
+    min-height: 100vh;
+}
+.container { 
+    max-width: 1000px; 
+    margin: 30px auto; 
+    background: #ffffff; 
+    padding: 40px; 
+    border-radius: 16px; 
+    box-shadow: 0 10px 30px rgba(44, 62, 80, 0.15); /* Stronger, professional shadow */
+    text-align: left;
+}
+h1 { 
+    color: #34495e; /* Darker, deep blue for title */
+    font-weight: 700; 
+    margin-bottom: 10px; 
+    padding-bottom: 5px; 
+    font-size: 2.2em;
+}
+h1 span {
+    color: #3498db; /* Bright blue accent */
+}
+h2 { 
+    color: #3498db; 
+    margin-top: 30px; 
+    margin-bottom: 20px; 
+    border-left: 4px solid #2ecc71; /* Green accent border */
+    padding-left: 10px;
+    font-weight: 600;
+}
+.subtitle {
+    color: #7f8c8d;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+/* --- 2. Link Cards (Lists) --- */
+ul { 
+    list-style: none; 
+    padding: 0; 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive Grid Layout */
+    gap: 15px;
+}
+
+li { 
+    margin-bottom: 0; 
+    padding: 18px 20px; 
+    background-color: #ecf0f1; /* Light gray card background */
+    border-radius: 10px; 
+    cursor: pointer; 
+    transition: all 0.3s ease-in-out;
+    border: 1px solid #e0e0e0;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+li:hover { 
+    background-color: #3498db; /* Blue on hover */
+    color: white;
+    box-shadow: 0 8px 15px rgba(52, 152, 219, 0.4);
+    transform: translateY(-5px);
+}
+li i {
+    font-size: 1.4em;
+    margin-right: 15px;
+    color: #3498db; /* Default icon color */
+    transition: color 0.3s;
+}
+li:hover i {
+    color: white; /* Icon white on hover */
+}
+
+/* Direct Links - style them as cards too */
+a.direct-link { 
+    text-decoration: none; 
+    color: #34495e; 
+    font-weight: 600; 
+    font-size: 1.05em; 
+    display: flex;
+    align-items: center;
+    padding: 18px 20px; 
+    background-color: #fcfcfc;
+    border: 1px solid #bdc3c7;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+a.direct-link:hover { 
+    color: #2ecc71; /* Green on hover for dashboard links */
+    background-color: #e8f8f5;
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(46, 204, 113, 0.1);
+}
+a.direct-link i {
+    color: #3498db;
+    margin-right: 15px;
+}
+
+/* --- 3. Modal Styles (QR Code) --- */
+.modal { 
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.7); 
+    z-index: 1000;
+    justify-content: center; 
+    align-items: center; 
+}
+.modal-content { 
+    background: #fff; 
+    padding: 30px; 
+    border-radius: 10px; 
+    text-align: center; 
+    width: 90%;
+    max-width: 380px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    animation: fadeIn 0.3s;
+}
+.close { 
+    cursor: pointer; 
+    color: #e74c3c; /* Red close button */
+    font-size: 28px; 
+    font-weight: bold;
+    float: right; 
+    margin-top: -10px;
+    margin-right: -10px;
+}
+.qr-img { 
+    margin: 20px 0; 
+    border: 4px solid #bdc3c7;
+    border-radius: 8px;
+}
+.btn-link { 
+    display: block; 
+    width: 100%;
+    padding: 12px 15px; 
+    background: #3498db; 
+    color: #fff; 
+    text-decoration: none; 
+    border-radius: 8px; 
+    font-weight: 700;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+.btn-link:hover {
+    background: #2980b9;
+}
+
+/* Animation for Modal */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+</style>
+</head>
+<body>
+<div class='container'>
+    <h1>🚀 <span>Trainer Access Hub</span></h1>
+    <p class="subtitle">ศูนย์รวมลิงก์สำหรับเข้าสู่ระบบแบบทดสอบและการประเมินของ TSR Group</p>
+
+    <h2><i class="bi bi-qr-code-scan"></i> ลิงก์พร้อม QR Code (สำหรับพนักงาน/ผู้เข้าสอบ)</h2>
+    <ul>
+        <li onclick="showQR('https://shorturl.asia/Nyxwa')">
+            <i class="bi bi-file-earmark-code"></i> 
+            E-OB_Testing-2025 (ทำแบบทดสอบ New TSR OBD)
+        </li>  
+        <li onclick="showQR('https://shorturl.asia/SR8f0')">
+            <i class="bi bi-mic"></i>
+            E-RolePlay-Assessment-plus-2025 (เทสคริปต์แบบอ่านคำถามสำหรับ New TSR) 
+        </li>  
+        <li onclick="showQR('https://shorturl.asia/G926K')">
+            <i class="bi bi-file-earmark-music"></i>
+            E-Testing-Voice (ตัวอย่างการตอบข้อโต้แย้งโดยวิทยากร)
+        </li>  
+        <li onclick="showQR('https://shorturl.asia/1v4HN')">
+            <i class="bi bi-robot"></i>
+            E-Simulate (เทสท์สคริปต์แบบโต้ตอบกับ Bot)
+        </li>  
+        <li onclick="showQR('https://shorturl.asia/V8nDP')">
+            <i class="bi bi-headset"></i>
+            Voice HD (ฝึกสคริปต์ข้อโต้แย้ง New TSRs)
+        </li>
+    </ul>
+
+    <h2><i class="bi bi-speedometer2"></i> ลิงก์แดชบอร์ดประเมินผลโดยตรง (สำหรับเทรนเนอร์)</h2>
+    <ul>
+        <li>
+            <a class='direct-link' href='https://shorturl.asia/AiRLd' target='_blank'>
+                <i class="bi bi-bar-chart-line-fill"></i>
+                Dashboard-OB_Testing2025 (สรุปประเมินแบบทด New TSR OBD)
+            </a>
+        </li>
+        <li>
+            <a class='direct-link' href='https://shorturl.asia/4pUKm' target='_blank'>
+                <i class="bi bi-journal-check"></i>
+                Dashboard_E-Roleplay-Assessment2025 (สรุปประเมินไฟล์เสียงการตอบข้อโต้แย้ง TSR)
+            </a>
+        </li>
+        <li>
+            <a class='direct-link' href='https://shorturl.asia/1LdmB' target='_blank'>
+                <i class="bi bi-person-lines-fill"></i>
+                Evaluation_Dashboard (สรุปประเมินโต้ตอบกับ Bot)
+            </a>
+        </li>
+    </ul>
+    
+    <p style='margin-top: 30px; color: #a0a0a0; font-size: 0.9em;'>* ลิงก์ทั้งหมดถูกเข้ารหัสย่อไว้เพื่อความสะดวกในการใช้งานและการสแกน</p>
+</div>
+
+<div class='modal' id='qrModal'>
+  <div class='modal-content'>
+    <span class='close' onclick='closeQR()'>&times;</span>
+    <h3>สแกน QR Code เพื่อเข้าสู่ระบบ</h3>
+    <img id='qrImage' class='qr-img' src='' alt='QR Code'>
+    <br>
+    <a id='goLink' class='btn-link' target='_blank'>คลิกเพื่อไปยังหน้าเว็บโดยตรง</a>
+  </div>
+</div>
+
+<script>
+function showQR(url) {
+  // ใช้ API ของ qrserver สำหรับสร้าง QR Code
+  document.getElementById('qrImage').src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(url)}`;
+  document.getElementById('goLink').href = url;
+  document.getElementById('qrModal').style.display = 'flex';
+}
+function closeQR() {
+  document.getElementById('qrModal').style.display = 'none';
+}
+</script>
+</body>
+</html>
